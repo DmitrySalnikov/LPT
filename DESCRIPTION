@@ -1,0 +1,9 @@
+Package: LPT
+Type: Package
+Title: Some two-sample permutation tests
+Version: 1.0
+Date: 2019-12-20
+Author: Dmitry Salnikov
+Maintainer: Dmitry Salnikov <mejibkop.ru@mail.ru>
+Description: The package functions implement some statistical two-sample permutation tests.
+License: GPL-3
