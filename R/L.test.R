@@ -57,6 +57,7 @@ L.test <- function(test.stat, method_prefix, x, y, normalization = FALSE, n.perm
     n.x = n.x,
     n.y = n.y,
     n.permutations = n.permutations,
+    permutations = permutations,
     exact = exact,
     p.value = p.value
   )
