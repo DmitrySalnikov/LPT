@@ -5,7 +5,7 @@
 }
 \description{
   Two-sample permutation test with two-sided alternative with the following statistics:
-  \deqn{\sum[1\le i \le n.x]\sum[1\le j \le n.y] ln(1+|x[i]-y[j]|^2)}}
+  \deqn{\sum[1\le i \le n.x]\sum[1\le j \le n.y] ln(1+|x[i]-y[j]|^2)}
 }
 \usage{
   L2.test(x, y, normalization = FALSE, n.permutations = 10000, exact = NULL, permutations = NULL, check_permutations = TRUE, ...)
