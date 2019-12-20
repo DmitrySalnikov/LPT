@@ -1,7 +1,3 @@
-source("L.normalizer.R")
-source("exact.permutations.R")
-source("L.test.R")
-
 L1.stat <- function(x, y, normalizer) {
   sum(sapply(x, function(x.i) { log( 1 + abs(x.i - y) / normalizer ) } ))
 }
