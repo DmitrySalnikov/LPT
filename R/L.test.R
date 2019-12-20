@@ -26,7 +26,7 @@ L.test <- function(test.stat, method_prefix, x, y, normalization = FALSE, n.perm
       if (sum(apply(permutations, 2, function(z) { sort(z) != sort(z0) } )) != 0) stop("permutations contain values not coincided with the given samples")
     }
     n.permutations = ncol(permutations)
-    exact = NA
+    exact = NULL
   }
 
   if (normalization) {
