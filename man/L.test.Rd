@@ -1,7 +1,7 @@
 \name{L.test}
 \alias{L.test}
 \title{
-  L_\gamma permutation test
+  \eqn{L\gamma} permutation test
 }
 \description{
   Two-sample permutation test with two-sided alternative with the following statistics:
