@@ -25,13 +25,13 @@
     a number indicating the number of random permutations. Used only if "permutations" argument is not given.
   }
   \item{exact}{
-    a logical indicating whether to use a permutation set equal to the entire permutation set. If NULL automatically set to TRUE if power of exact permutation set less or equal  "n.permutations" argument. Used only if "permutations" argument is not given.
+    a logical indicating whether to use a permutations set equal to the entire permutations set. If NULL automatically set to TRUE if power of exact permutations set less or equal  "n.permutations" argument. Used only if "permutations" argument is not given.
   }
   \item{permutations}{
-    an optional matrix containing permutation set. Permutations should place in the columns of the matrix and contain values coincided with the given samples.
+    an optional matrix containing permutations set. Permutations should place in the columns of the matrix and contain values coincided with the given samples.
   }
   \item{check_permutations}{
-    an optional logical indicating whether to check the given permutation set. Used only if "permutations" argument is given.
+    an optional logical indicating whether to check the given permutations set. Used only if "permutations" argument is given.
   }
   \item{\dots}{
     additional parameters.
@@ -42,13 +42,14 @@
   \item{p.value}{the p-value for the test.}
   \item{normalization}{a logical indication of whether normalization has been used.}
   \item{normalizer}{value of used normalizer.}
-  \item{permutations}{permutation set that has been used.}
-  \item{n.permutations}{size of used permutation set.}
-  \item{exact}{a logical indication of whether exact permutation set has been used.}
+  \item{permutations}{used permutations set with the original samples in the first column.}
+  \item{stat.values}{vector of criterion statistics obtained. the first value corresponds to the original sample.}
+  \item{n.permutations}{size of used permutations set.}
+  \item{exact}{a logical indication of whether exact permutations set has been used.}
   \item{n.x}{length of x sample}
   \item{n.y}{length of y sample}
   \item{alternative}{a character string describing the alternative hypothesis.}
-  \item{method}{a character string indicating what type of t-test was performed.}
+  \item{method}{a character string indicating what type of L-test was performed.}
   \item{data.name}{a character string giving the name(s) of the data.}
 }
 \author{

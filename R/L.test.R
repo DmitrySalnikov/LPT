@@ -1,15 +1,21 @@
-L.test <- function(test.stat, method_prefix, x, y, normalization = FALSE, n.permutations = 10000, exact = NULL, permutations = NULL, check_permutations = TRUE) {
+L.stat <- function(x, y, gamma, normalizer) {
+  sum(sapply(x, function(x.i) { log( 1 + (abs(x.i - y) / normalizer)**gamma ) } ))
+}
+
+L.test <- function(x, y, gamma, normalization = FALSE, n.permutations = 10000, exact = NULL, permutations = NULL, check_permutations = TRUE) {
   n.x <- length(x)
   if(n.x < 2) stop("not enough 'x' observations")
   n.y <- length(y)
   if(n.y < 2) stop("not enough 'y' observations")
-
+  if (gamma <= 0) stop("gamma parameter must be strictly positive (gamma > 0)")
+  
   z0 <- c(x, y)
   n.z <- n.x + n.y
 
   if (is.null(permutations)) {
     if (is.null(exact)) {
-      exact = if (n.exact.perms(n.x, n.y, n.z) <= n.permutations) TRUE else FALSE
+      n.exact <- n.exact.perms(n.x, n.y)
+      exact = if (is.nan(n.exact) || n.exact > n.permutations) FALSE else TRUE
     }
 
     if (exact) {
@@ -40,13 +46,15 @@ L.test <- function(test.stat, method_prefix, x, y, normalization = FALSE, n.perm
     normalizer <- 1
   }
 
-  stat <- test.stat(x, y, normalizer)
-  perm.stat <- apply(permutations, 2, function(z) { test.stat(z[1:n.x], z[(n.x+1):n.z], normalizer) } )
+  stat <- L.stat(x, y, gamma, normalizer)
+  perm.stat <- apply(permutations, 2, function(z) { L.stat(z[1:n.x], z[(n.x+1):n.z], gamma, normalizer) } )
   p.value <- mean(perm.stat > stat)
 
   data.name <- paste(deparse(substitute(x)), "and", deparse(substitute(y)))
   alternative <- "two-sided"
-  method <- paste(method_prefix, "two-sample permutation test")
+  method <- paste0("L", gamma, " two-sample permutation test")
+  permutations <- cbind(z0, permutations)
+  stat.values <- c(z0 = stat, perm.stat)
 
   rval <- list(
     data.name = data.name,
@@ -58,6 +66,7 @@ L.test <- function(test.stat, method_prefix, x, y, normalization = FALSE, n.perm
     n.y = n.y,
     n.permutations = n.permutations,
     permutations = permutations,
+    stat.values = stat.values,
     exact = exact,
     p.value = p.value
   )

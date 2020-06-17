@@ -29,7 +29,10 @@ generate.perm.idx <- function(k, n) {
   idx
 }
 
-exact.permutations <- function(x, y, n.x, n.y) {
+exact.permutations <- function(x, y, n.x = NULL, n.y = NULL) {
+  if (is.null(n.x)) n.x = length(x)
+  if (is.null(n.y)) n.y = length(y)
+  
   n <- if (n.x == n.y) n.x%/%2 else min(n.x, n.y)
   perms <- c(x, y)
   for (k in 1:n) {
@@ -44,7 +47,7 @@ exact.permutations <- function(x, y, n.x, n.y) {
   perms
 }
 
-n.exact.perms <-function(n.x, n.y, n.z) {
-  n <- factorial(n.z) / factorial(n.x) / factorial(n.y)
+n.exact.perms <-function(n.x, n.y) {
+  n <- factorial(n.x + n.y) / factorial(n.x) / factorial(n.y)
   if (n.x == n.y) n / 2 else n
 }

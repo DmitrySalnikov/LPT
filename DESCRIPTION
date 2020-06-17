@@ -1,7 +1,7 @@
 Package: LPT
 Type: Package
 Title: Some two-sample permutation tests
-Version: 1.0
+Version: 1.1
 Date: 2019-12-20
 Author: Dmitry Salnikov
 Maintainer: Dmitry Salnikov <mejibkop.ru@mail.ru>

@@ -1,14 +1,14 @@
-\name{L1.test}
-\alias{L1.test}
+\name{L2.test}
+\alias{L2.test}
 \title{
-  L1 permutation test
+  L2 permutation test
 }
 \description{
   Two-sample permutation test with two-sided alternative with the following statistics:
-  \deqn{\sum[1\le i \le n.x]\sum[1\le j \le n.y] ln(1+|x[i]-y[j]|)}
+  \deqn{\sum[1\le i \le n.x]\sum[1\le j \le n.y] ln(1+|x[i]-y[j]|^\gamma)}
 }
 \usage{
-  L1.test(x, y, normalization = FALSE, n.permutations = 10000, exact = NULL, permutations = NULL, check_permutations = TRUE, ...)
+  L2.test(x, y, gamma, normalization = FALSE, n.permutations = 10000, exact = NULL, permutations = NULL, check_permutations = TRUE, ...)
 }
 \arguments{
   \item{x}{
@@ -16,6 +16,9 @@
   }
   \item{y}{
     a (non-empty) numeric vector of data values.
+  }
+  \item{gamma}{
+    a positive numeric value correspond to the power parameter of the test statistic.
   }
   \item{normalization}{
     a logical indicating whether to use samples scaling. The normalizator is
@@ -59,5 +62,5 @@
   x <- rnorm(5)
   y <- rnorm(10)
   
-  L1.test(x, y)
+  L2.test(x, y)
 }
