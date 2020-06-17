@@ -1,14 +1,14 @@
-\name{L2.test}
-\alias{L2.test}
+\name{L.test}
+\alias{L.test}
 \title{
-  L2 permutation test
+  L_\gamma permutation test
 }
 \description{
   Two-sample permutation test with two-sided alternative with the following statistics:
   \deqn{\sum[1\le i \le n.x]\sum[1\le j \le n.y] ln(1+|x[i]-y[j]|^\gamma)}
 }
 \usage{
-  L2.test(x, y, gamma, normalization = FALSE, n.permutations = 10000, exact = NULL, permutations = NULL, check_permutations = TRUE, ...)
+  L.test(x, y, gamma, normalization = FALSE, n.permutations = 10000, exact = NULL, permutations = NULL, check_permutations = TRUE, ...)
 }
 \arguments{
   \item{x}{
@@ -62,5 +62,5 @@
   x <- rnorm(5)
   y <- rnorm(10)
   
-  L2.test(x, y)
+  L.test(x, y, gamma = 2)
 }
