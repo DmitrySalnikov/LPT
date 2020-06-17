@@ -18,7 +18,7 @@
     a (non-empty) numeric vector of data values.
   }
   \item{gamma}{
-    a positive numeric value correspond to the power parameter of the test statistic.
+    a positive numeric value corresponds to the power parameter of the test statistic.
   }
   \item{normalization}{
     a logical indicating whether to use samples scaling. The normalizator is
